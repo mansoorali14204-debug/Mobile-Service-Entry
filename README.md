@@ -1,4 +1,4 @@
-# Mobile Elite - Service Entry Form
+# New Mobiles Elite - Service Entry Form
 
 A modern, responsive web application for managing service entries in a mobile shop sales and service center.
 
@@ -68,6 +68,7 @@ All service entries are stored in the browser's local storage. To clear all data
 - Edit existing entries
 - Email notifications
 - Database integration
+
 
 
 
