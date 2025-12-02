@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Mobiles Elite - Service Entry Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📱 New Mobiles Elite</h1>
+            <p class="subtitle">Sales & Service Center</p>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <h2>Service Entry Form</h2>
+                <form id="serviceForm">
+                    <!-- Customer Information -->
+                    <section class="form-section">
+                        <h3>Customer Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customerName">Customer Name <span class="required">*</span></label>
+                                <input type="text" id="customerName" name="customerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Device Information -->
+                    <section class="form-section">
+                        <h3>Device Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="deviceType">Device Type <span class="required">*</span></label>
+                                <select id="deviceType" name="deviceType" required>
+                                    <option value="">Select Device Type</option>
+                                    <option value="mobile">Mobile Phone</option>
+                                    <option value="tablet">Tablet</option>
+                                    <option value="smartwatch">Smartwatch</option>
+                                    <option value="laptop">Laptop</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="brand">Brand <span class="required">*</span></label>
+                                <input type="text" id="brand" name="brand" list="brandList" placeholder="Select or type brand" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model">Model <span class="required">*</span></label>
+                                <input type="text" id="model" name="model" list="modelList" placeholder="Select or type model" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="imei">IMEI Number</label>
+                                <input type="text" id="imei" name="imei" maxlength="15">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="color">Color</label>
+                                <input type="text" id="color" name="color">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" id="password" name="password">
+                            </div>
+                        </div>
+
+                        <!-- Brand suggestions -->
+                        <datalist id="brandList">
+                            <!-- Mobile brands -->
+                            <option value="Apple"></option>
+                            <option value="Samsung"></option>
+                            <option value="Xiaomi"></option>
+                            <option value="Redmi"></option>
+                            <option value="Realme"></option>
+                            <option value="Oppo"></option>
+                            <option value="Vivo"></option>
+                            <option value="OnePlus"></option>
+                            <option value="Motorola"></option>
+                            <option value="Nokia"></option>
+                            <option value="Infinix"></option>
+                            <option value="Tecno"></option>
+                            <option value="Honor"></option>
+                            <option value="Huawei"></option>
+
+                            <!-- Tablet brands -->
+                            <option value="Lenovo"></option>
+                            <option value="iPad"></option>
+                            <option value="Samsung Galaxy Tab"></option>
+
+                            <!-- Laptop brands -->
+                            <option value="Dell"></option>
+                            <option value="HP"></option>
+                            <option value="Asus"></option>
+                            <option value="Acer"></option>
+                            <option value="Lenovo Laptop"></option>
+                            <option value="MSI"></option>
+                            <option value="Apple MacBook"></option>
+                        </datalist>
+
+                        <!-- Model suggestions (common examples, can still type anything) -->
+                        <datalist id="modelList">
+                            <!-- Apple -->
+                            <option value="iPhone 11"></option>
+                            <option value="iPhone 12"></option>
+                            <option value="iPhone 13"></option>
+                            <option value="iPhone 14"></option>
+                            <option value="iPhone 15"></option>
+                            <option value="iPad 9th Gen"></option>
+                            <option value="iPad 10th Gen"></option>
+                            <option value="iPad Pro 11"></option>
+
+                            <!-- Samsung -->
+                            <option value="Galaxy S21"></option>
+                            <option value="Galaxy S22"></option>
+                            <option value="Galaxy S23"></option>
+                            <option value="Galaxy A14"></option>
+                            <option value="Galaxy A34"></option>
+                            <option value="Galaxy A54"></option>
+                            <option value="Galaxy M14"></option>
+                            <option value="Galaxy Tab A7"></option>
+
+                            <!-- Xiaomi / Redmi -->
+                            <option value="Redmi Note 10"></option>
+                            <option value="Redmi Note 11"></option>
+                            <option value="Redmi Note 12"></option>
+                            <option value="Poco X5"></option>
+
+                            <!-- Realme -->
+                            <option value="Realme 9"></option>
+                            <option value="Realme 10"></option>
+                            <option value="Realme Narzo 50"></option>
+
+                            <!-- Oppo / Vivo -->
+                            <option value="Oppo A57"></option>
+                            <option value="Oppo Reno 8"></option>
+                            <option value="Vivo Y16"></option>
+                            <option value="Vivo Y21"></option>
+
+                            <!-- OnePlus -->
+                            <option value="OnePlus Nord CE 3"></option>
+                            <option value="OnePlus 9R"></option>
+                            <option value="OnePlus 10R"></option>
+
+                            <!-- Laptops -->
+                            <option value="Dell Inspiron 15"></option>
+                            <option value="Dell Vostro 14"></option>
+                            <option value="HP 15s"></option>
+                            <option value="HP Pavilion 14"></option>
+                            <option value="Lenovo IdeaPad 3"></option>
+                            <option value="Lenovo ThinkPad E14"></option>
+                            <option value="Asus VivoBook 15"></option>
+                            <option value="Acer Aspire 7"></option>
+                            <option value="MacBook Air M1"></option>
+                            <option value="MacBook Air M2"></option>
+                            <option value="MacBook Pro 13 M2"></option>
+                        </datalist>
+                    </section>
+
+                    <!-- Service Information -->
+                    <section class="form-section">
+                        <h3>Service Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="serviceType">Service Type <span class="required">*</span></label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="">Select Service Type</option>
+                                    <option value="screen-repair">Screen Repair/Replacement</option>
+                                    <option value="battery">Battery Replacement</option>
+                                    <option value="charging-port">Charging Port Repair</option>
+                                    <option value="software">Software Issue</option>
+                                    <option value="water-damage">Water Damage Repair</option>
+                                    <option value="camera">Camera Repair</option>
+                                    <option value="speaker">Speaker/Microphone Repair</option>
+                                    <option value="button">Button Repair</option>
+                                    <option value="fingerprint">Fingerprint</option>
+                                    <option value="simtray">SIM Tray</option>
+                                    <option value="stripe">Stripe</option>
+                                    <option value="unlocking">Unlocking</option>
+                                    <option value="data-recovery">Data Recovery</option>
+                                    <option value="dead">Dead</option>
+                                    <option value="motherboard-issue">Motherboard issue</option>
+                                    <option value="ic-work">IC work</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority">Priority <span class="required">*</span></label>
+                                <select id="priority" name="priority" required>
+                                    <option value="normal">Normal</option>
+                                    <option value="urgent">Urgent</option>
+                                    <option value="low">Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="problemDescription">Product Condition <span class="required">*</span></label>
+                            <textarea id="problemDescription" name="problemDescription" rows="4" required placeholder="Describe the product condition in detail..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="receivedItems">Received Items</label>
+                            <textarea id="receivedItems" name="receivedItems" rows="3" placeholder="e.g., SIM tray, Cover, Memory card, SIM, Charger, etc."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="estimatedCost">Estimated Cost (₹) <span class="required">*</span></label>
+                                <input type="number" id="estimatedCost" name="estimatedCost" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="advanceAmount">Advance Amount (₹) <span class="required">*</span></label>
+                                <input type="number" id="advanceAmount" name="advanceAmount" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="entryDate">Entry Date <span class="required">*</span></label>
+                                <input type="date" id="entryDate" name="entryDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expectedDelivery">Expected Delivery Date</label>
+                                <input type="date" id="expectedDelivery" name="expectedDelivery">
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="status">Status <span class="required">*</span></label>
+                            <select id="status" name="status" required>
+                                <option value="pending">Pending</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="return">Return</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="technicianNotes">Technician Notes <span class="required">*</span></label>
+                            <textarea id="technicianNotes" name="technicianNotes" rows="3" required placeholder="Additional notes from technician..."></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Submit Buttons -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Service Entry</button>
+                        <button type="reset" class="btn btn-secondary">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Service Entries Display -->
+            <div class="entries-container" id="entriesContainer">
+                <div class="entries-header">
+                    <h2>Service Entries</h2>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Search by name, phone, device, service type..." />
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <button type="button" class="btn btn-export" id="exportExcelBtn" title="Export to Excel">
+                            📊 Export to Excel
+                        </button>
+                    </div>
+                </div>
+                <div id="entriesList" class="entries-list">
+                    <p class="no-entries">No service entries yet. Submit a form to see entries here.</p>
+                </div>
+            </div>
+
+            <!-- Reports Section -->
+            <div class="reports-container" id="reportsContainer">
+                <div class="reports-header">
+                    <h2>Reports</h2>
+                    <div class="report-tabs">
+                        <button class="report-tab active" data-tab="daily">Daily Report</button>
+                        <button class="report-tab" data-tab="sales">Sales Report</button>
+                    </div>
+                </div>
+
+                <!-- Daily Report Tab -->
+                <div class="report-content active" id="dailyReportTab">
+                    <div class="report-filters">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dailyReportDate">Select Date</label>
+                                <input type="date" id="dailyReportDate" value="">
+                            </div>
+                            <div class="form-group" style="display: flex; align-items: flex-end;">
+                                <button type="button" class="btn btn-primary" id="generateDailyReport">Generate Report</button>
+                            </div>
+                            <div class="form-group" style="display: flex; align-items: flex-end;">
+                                <button type="button" class="btn btn-export" id="downloadDailyReport">📊 Download Daily Report</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dailyReportContent" class="report-content-area">
+                        <p class="no-entries">Select a date and click "Generate Report" to view daily entries.</p>
+                    </div>
+                </div>
+
+                <!-- Sales Report Tab -->
+                <div class="report-content" id="salesReportTab">
+                    <div class="report-filters">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="salesReportStartDate">Start Date</label>
+                                <input type="date" id="salesReportStartDate" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="salesReportEndDate">End Date</label>
+                                <input type="date" id="salesReportEndDate" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="salesReportStatus">Status Filter</label>
+                                <select id="salesReportStatus">
+                                    <option value="all">All Status</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="pending">Pending</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="display: flex; align-items: flex-end;">
+                                <button type="button" class="btn btn-primary" id="generateSalesReport">Generate Report</button>
+                            </div>
+                            <div class="form-group" style="display: flex; align-items: flex-end;">
+                                <button type="button" class="btn btn-export" id="downloadSalesReport">📊 Download Sales Report</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="salesReportContent" class="report-content-area">
+                        <p class="no-entries">Select date range and filters, then click "Generate Report" to view sales report.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Printable Job Sheet (hidden on screen, visible only for print) -->
+    <div id="jobSheet" class="job-sheet">
+        <!-- Header Section -->
+        <div class="job-sheet-header">
+            <div class="job-sheet-header-content">
+                <div class="job-sheet-logo-area">
+                    <h1 class="job-sheet-company-name">New Mobiles Elite</h1>
+                    <p class="job-sheet-tagline">Sales & Service Center</p>
+                </div>
+                <div class="job-sheet-contact-info">
+                    <p><strong>Phone:</strong> +91 9750041441</p>
+                    <p><strong>Email:</strong> info@newmobileselite.com</p>
+                </div>
+            </div>
+            <div class="job-sheet-header-border"></div>
+        </div>
+
+        <!-- Job Number and Date -->
+        <div class="job-sheet-meta">
+            <div class="job-sheet-meta-item">
+                <span class="job-sheet-meta-label">Job Number:</span>
+                <span class="job-sheet-meta-value" id="jsJobNo"></span>
+            </div>
+            <div class="job-sheet-meta-item">
+                <span class="job-sheet-meta-label">Date:</span>
+                <span class="job-sheet-meta-value" id="jsEntryDate"></span>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="job-sheet-content">
+            <!-- Left Column -->
+            <div class="job-sheet-column">
+                <!-- Customer Information -->
+                <div class="job-sheet-card">
+                    <div class="job-sheet-card-header">
+                        <h3>Customer Information</h3>
+                    </div>
+                    <div class="job-sheet-card-body">
+                        <table class="job-sheet-table">
+                            <tr>
+                                <td class="job-sheet-label">Customer Name:</td>
+                                <td class="job-sheet-value" id="jsCustomerName"></td>
+                            </tr>
+                            <tr>
+                                <td class="job-sheet-label">Phone:</td>
+                                <td class="job-sheet-value" id="jsPhoneNumber"></td>
+                            </tr>
+                            <tr>
+                                <td class="job-sheet-label">Address:</td>
+                                <td class="job-sheet-value" id="jsAddress"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Device Details -->
+                <div class="job-sheet-card">
+                    <div class="job-sheet-card-header">
+                        <h3>Device Information</h3>
+                    </div>
+                    <div class="job-sheet-card-body">
+                        <table class="job-sheet-table">
+                            <tr>
+                                <td class="job-sheet-label">Device Type:</td>
+                                <td class="job-sheet-value" id="jsDeviceType"></td>
+                            </tr>
+                            <tr>
+                                <td class="job-sheet-label">Brand / Model:</td>
+                                <td class="job-sheet-value" id="jsBrandModel"></td>
+                            </tr>
+                            <tr>
+                                <td class="job-sheet-label">IMEI Number:</td>
+                                <td class="job-sheet-value" id="jsImei"></td>
+                            </tr>
+                            <tr>
+                                <td class="job-sheet-label">Color:</td>
+                                <td class="job-sheet-value" id="jsColor"></td>
+                            </tr>
+                            <tr>
+                                <td class="job-sheet-label">Password:</td>
+                                <td class="job-sheet-value" id="jsPassword"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="job-sheet-column">
+                <!-- Service Details -->
+                <div class="job-sheet-card">
+                    <div class="job-sheet-card-header">
+                        <h3>Service Details</h3>
+                    </div>
+                    <div class="job-sheet-card-body">
+                        <table class="job-sheet-table">
+                            <tr>
+                                <td class="job-sheet-label">Service Type:</td>
+                                <td class="job-sheet-value" id="jsServiceType"></td>
+                            </tr>
+                        </table>
+                        <div class="job-sheet-condition-box">
+                            <strong>Product Condition:</strong>
+                            <div id="jsProductCondition" class="job-sheet-condition-text"></div>
+                        </div>
+                        <div class="job-sheet-received-items-box">
+                            <strong>Received Items:</strong>
+                            <div id="jsReceivedItems" class="job-sheet-received-items-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost Details -->
+                <div class="job-sheet-card job-sheet-cost-card">
+                    <div class="job-sheet-card-header">
+                        <h3>Payment Details</h3>
+                    </div>
+                    <div class="job-sheet-card-body">
+                        <table class="job-sheet-cost-table">
+                            <tr>
+                                <td class="job-sheet-label">Estimated Cost:</td>
+                                <td class="job-sheet-cost-value">₹<span id="jsEstimatedCost"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="job-sheet-label">Advance Paid:</td>
+                                <td class="job-sheet-cost-value">₹<span id="jsAdvanceAmount"></span></td>
+                            </tr>
+                            <tr class="job-sheet-balance-row">
+                                <td class="job-sheet-label"><strong>Balance Amount:</strong></td>
+                                <td class="job-sheet-balance-value"><strong>₹<span id="jsBalance"></span></strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="job-sheet-terms-section">
+            <div class="job-sheet-terms-header">
+                <h3>Terms & Conditions</h3>
+            </div>
+            <div class="job-sheet-terms-content">
+                <ol class="job-sheet-terms-list">
+                    <li>Customer must present this job sheet at the time of delivery. Without this sheet, device will not be released.</li>
+                    <li>Data backup is the sole responsibility of the customer. We are not liable for any data loss during service.</li>
+                    <li>Any additional parts or labour charges not mentioned above will be charged extra with customer's prior approval.</li>
+                    <li>Devices not collected within 30 days of completion notification may incur storage charges of ₹50 per day.</li>
+                    <li>Warranty, if applicable, covers only the specific part(s) replaced as per company policy and does not cover physical damage.</li>
+                    <li>We reserve the right to refuse service if device is found to be tampered with or under warranty from another service center.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Footer with Signatures -->
+        <div class="job-sheet-footer">
+            <div class="job-sheet-signature-section">
+                <div class="job-sheet-signature-box">
+                    <p class="job-sheet-signature-label">Customer Signature</p>
+                    <div class="job-sheet-signature-line"></div>
+                    <p class="job-sheet-signature-date">Date: _______________</p>
+                </div>
+                <div class="job-sheet-signature-box">
+                    <p class="job-sheet-signature-label">Authorized Technician</p>
+                    <div class="job-sheet-signature-line"></div>
+                    <p class="job-sheet-signature-date">Date: _______________</p>
+                </div>
+            </div>
+            <div class="job-sheet-footer-note">
+                <p><em>This is a computer-generated document. No signature required for printing.</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Update Modal -->
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Update Service Status</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Select the new status:</p>
+                <div class="status-options">
+                    <button class="status-option-btn" data-status="pending">Pending</button>
+                    <button class="status-option-btn" data-status="in-progress">In Progress</button>
+                    <button class="status-option-btn" data-status="completed">Completed</button>
+                    <button class="status-option-btn" data-status="return">Return</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMEI Update Modal -->
+    <div id="imeiModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Update IMEI Number</h3>
+                <span class="close-modal" id="closeImeiModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Enter the new IMEI number for this completed service:</p>
+                <div class="form-group full-width" style="margin-bottom: 20px;">
+                    <label for="newImei">New IMEI Number</label>
+                    <input type="text" id="newImei" maxlength="20" placeholder="Enter new IMEI">
+                </div>
+                <div class="form-actions" style="margin-top: 0; justify-content: flex-end;">
+                    <button type="button" class="btn btn-secondary" id="cancelImeiUpdate">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveImeiUpdate">Save IMEI</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
