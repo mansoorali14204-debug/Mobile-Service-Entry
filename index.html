@@ -12,8 +12,15 @@
 <body>
     <div class="container">
         <header>
-            <h1>📱 New Mobiles Elite</h1>
-            <p class="subtitle">Sales & Service Center</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div>
+                    <h1>📱 New Mobiles Elite</h1>
+                    <p class="subtitle">Sales & Service Center</p>
+                </div>
+                <button id="logoutBtn" class="btn-logout" title="Logout">
+                    🚪 Logout
+                </button>
+            </div>
         </header>
 
         <main>
@@ -570,6 +577,23 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Check authentication on page load
+        (async function() {
+            const isAuthenticated = await auth.requireAuth();
+            if (!isAuthenticated) {
+                return; // Redirect will happen in requireAuth
+            }
+
+            // Setup logout button
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    auth.logout();
+                }
+            });
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

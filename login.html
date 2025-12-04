@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - New Mobiles Elite</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>📱 New Mobiles Elite</h1>
+                <p class="login-subtitle">Sales & Service Center</p>
+                <p class="login-tagline">Please login to continue</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        required 
+                        autocomplete="username"
+                        placeholder="Enter your username"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        autocomplete="current-password"
+                        placeholder="Enter your password"
+                    >
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                <button type="submit" class="btn btn-primary btn-login">
+                    <span id="loginButtonText">Login</span>
+                    <span id="loginSpinner" class="spinner" style="display: none;">⏳</span>
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>© 2024 New Mobiles Elite. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Check if already logged in
+        if (auth.isAuthenticated()) {
+            window.location.href = 'index.html';
+        }
+
+        // Login form handler
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMessage');
+            const loginButton = document.querySelector('.btn-login');
+            const loginButtonText = document.getElementById('loginButtonText');
+            const loginSpinner = document.getElementById('loginSpinner');
+
+            // Hide error message
+            errorDiv.style.display = 'none';
+            errorDiv.textContent = '';
+
+            // Show loading state
+            loginButton.disabled = true;
+            loginButtonText.style.display = 'none';
+            loginSpinner.style.display = 'inline';
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    // Store token
+                    auth.setToken(data.token);
+                    
+                    // Redirect to main app
+                    window.location.href = 'index.html';
+                } else {
+                    // Show error message
+                    errorDiv.textContent = data.error || 'Invalid username or password.';
+                    errorDiv.style.display = 'block';
+                    
+                    // Reset button state
+                    loginButton.disabled = false;
+                    loginButtonText.style.display = 'inline';
+                    loginSpinner.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                errorDiv.textContent = 'Connection error. Please check if the server is running.';
+                errorDiv.style.display = 'block';
+                
+                // Reset button state
+                loginButton.disabled = false;
+                loginButtonText.style.display = 'inline';
+                loginSpinner.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
