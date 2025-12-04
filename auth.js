@@ -1,96 +1,61 @@
-// Frontend Authentication Utilities
+// Frontend Authentication Utilities (No Server Required)
+
+// Hardcoded users - simple authentication
+const AUTH_USERS = {
+    'newmobiles01': 'NM786786',
+    'newmobileselite01': 'NME786786'
+};
 
 const auth = {
-    // Get token from sessionStorage
-    getToken() {
-        return sessionStorage.getItem('authToken');
+    // Get authentication status from sessionStorage
+    getAuthStatus() {
+        return sessionStorage.getItem('isAuthenticated') === 'true';
     },
 
-    // Set token in sessionStorage
-    setToken(token) {
-        sessionStorage.setItem('authToken', token);
+    // Set authentication status
+    setAuthStatus(status) {
+        sessionStorage.setItem('isAuthenticated', status ? 'true' : 'false');
     },
 
-    // Remove token from sessionStorage
-    removeToken() {
-        sessionStorage.removeItem('authToken');
+    // Store username
+    setUsername(username) {
+        sessionStorage.setItem('username', username);
+    },
+
+    // Get username
+    getUsername() {
+        return sessionStorage.getItem('username');
     },
 
     // Check if user is authenticated
     isAuthenticated() {
-        return !!this.getToken();
+        return this.getAuthStatus();
     },
 
-    // Get authorization header for API requests
-    getAuthHeader() {
-        const token = this.getToken();
-        return token ? { 'Authorization': `Bearer ${token}` } : {};
-    },
-
-    // Verify token with server
-    async verifyToken() {
-        const token = this.getToken();
-        if (!token) {
-            return false;
+    // Login function - checks username and password
+    login(username, password) {
+        // Check if user exists and password matches
+        if (AUTH_USERS[username] && AUTH_USERS[username] === password) {
+            this.setAuthStatus(true);
+            this.setUsername(username);
+            return { success: true, username: username };
         }
-
-        try {
-            const response = await fetch('/api/verify', {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                return data.success === true;
-            }
-            return false;
-        } catch (error) {
-            console.error('Token verification error:', error);
-            return false;
-        }
+        return { success: false, error: 'Invalid username or password.' };
     },
 
     // Logout user
-    async logout() {
-        try {
-            const token = this.getToken();
-            if (token) {
-                await fetch('/api/logout', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
-            }
-        } catch (error) {
-            console.error('Logout error:', error);
-        } finally {
-            this.removeToken();
-            window.location.href = 'login.html';
-        }
+    logout() {
+        this.setAuthStatus(false);
+        sessionStorage.removeItem('username');
+        window.location.href = 'login.html';
     },
 
     // Check authentication and redirect if not authenticated
-    async requireAuth() {
-        const isAuth = this.isAuthenticated();
-        if (!isAuth) {
+    requireAuth() {
+        if (!this.isAuthenticated()) {
             window.location.href = 'login.html';
             return false;
         }
-
-        // Verify token with server
-        const isValid = await this.verifyToken();
-        if (!isValid) {
-            this.removeToken();
-            window.location.href = 'login.html';
-            return false;
-        }
-
         return true;
     }
 };
-
